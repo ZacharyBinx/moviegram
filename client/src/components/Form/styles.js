@@ -9,10 +9,14 @@ export default makeStyles((theme) => ({
   paper: {
     padding: theme.spacing(2),
   },
+  empty:{
+    display: "none",
+  },
   form: {
     display: "flex",
     flexWrap: "wrap",
     justifyContent: "center",
+
   },
   fileInput: {
     width: "97%",

@@ -26,6 +26,7 @@ const Home = () => {
             justify="space-between"
             alignItems="stretch"
             spacing={3}
+            overflow="hidden"
             className={classes.mainContainer}
           >
             <Grid item xs={12} sm={7}>

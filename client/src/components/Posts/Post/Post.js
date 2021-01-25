@@ -19,6 +19,7 @@ import {
   watchPost,
 } from "../../../actions/posts";
 import { Likes, Dislikes, Watches } from "./Reactions.js";
+
 const Post = ({ post, setCurrentId }) => {
   const classes = useStyles();
   const dispatch = useDispatch();
