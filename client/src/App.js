@@ -7,6 +7,7 @@ import Auth from "./components/Auth/Auth";
 import { StoreProvider } from "./reducers/search";
 
 const App = () => {
+
   return (
     <StoreProvider>
       <BrowserRouter>
