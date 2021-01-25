@@ -102,13 +102,6 @@ const Form = ({ currentId, setCurrentId }) => {
           }
         />
         <div className={classes.fileInput}>
-          <FileBase
-            type="file"
-            multiple={false}
-            onDone={({ base64 }) =>
-              setPostData({ ...postData, imageUrl: base64 })
-            }
-          />
           <Button
             className={classes.buttonSubmit}
             variant="contained"
