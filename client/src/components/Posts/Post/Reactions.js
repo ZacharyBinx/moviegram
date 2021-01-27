@@ -4,6 +4,7 @@ import ThumbDownAltIcon from "@material-ui/icons/ThumbDownAlt";
 import ThumbDownAltOutlined from "@material-ui/icons/ThumbDownAltOutlined";
 import VisibilityOutlinedIcon from "@material-ui/icons/VisibilityOutlined";
 import VisibilityIcon from "@material-ui/icons/Visibility";
+
 export const Likes = ({ post, user }) => {
   if (post.likes.length > 0) {
     return post.likes.find(
@@ -27,7 +28,8 @@ export const Likes = ({ post, user }) => {
     </>
   );
 };
-export const Dislikes = ({ post, user }) => {
+
+export const DisLikes = ({ post, user }) => {
   if (post.dislikes.length > 0) {
     return post.dislikes.find(
       (dislike) => dislike === (user?.result?.googleId || user?.result?._id)
@@ -50,6 +52,7 @@ export const Dislikes = ({ post, user }) => {
     </>
   );
 };
+
 export const Watches = ({ post, user }) => {
   if (post.watch.length > 0) {
     return post.watch.find(

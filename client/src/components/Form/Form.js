@@ -38,16 +38,6 @@ const Form = ({ currentId, setCurrentId }) => {
     }
   };
 
-  if(!user?.result?.name) {
-    return (
-      <Paper className={classes.paper}>
-        <Typography variant="h6" align="center">
-          Please Sign In To Participate In The Watchlist
-        </Typography>
-      </Paper>
-    )
-  }
-
   const clear = () => {
     setCurrentId(0);
     setPostData({
@@ -70,26 +60,6 @@ const Form = ({ currentId, setCurrentId }) => {
         <Typography variant="h6">
           {currentId ? "Editing" : "Adding"} a Movie
         </Typography>
-
-        <TextField
-          name="title"
-          variant="outlined"
-          label="title"
-          fullWidth
-          value={postData.title}
-          onChange={(e) => setPostData({ ...postData, title: e.target.value })}
-        />
-
-        <TextField
-          name="synopsis"
-          variant="outlined"
-          label="synopsis"
-          fullWidth
-          value={postData.synopsis}
-          onChange={(e) =>
-            setPostData({ ...postData, synopsis: e.target.value })
-          }
-        />
         
         <TextField
           name="tags"

@@ -7,6 +7,7 @@ import {
   Button,
   Typography,
 } from "@material-ui/core";
+
 import DeleteIcon from "@material-ui/icons/Delete";
 import MoreHorizIcon from "@material-ui/icons/MoreHoriz";
 import moment from "moment";
@@ -18,12 +19,12 @@ import {
   dislikePost,
   watchPost,
 } from "../../../actions/posts";
-import { Likes, Dislikes, Watches } from "./Reactions.js";
-
+import { Likes, DisLikes, Watches } from "./Reactions.js";
 const Post = ({ post, setCurrentId }) => {
   const classes = useStyles();
   const dispatch = useDispatch();
   const user = JSON.parse(localStorage.getItem("profile"));
+
   return (
     <Card className={classes.card}>
       <CardMedia
@@ -77,7 +78,7 @@ const Post = ({ post, setCurrentId }) => {
           disabled={!user?.result}
           onClick={() => dispatch(dislikePost(post._id))}
         >
-          <Dislikes post={post} user={user} />
+          <DisLikes post={post} user={user} />
         </Button>
         <Button
           size="small"
@@ -101,4 +102,5 @@ const Post = ({ post, setCurrentId }) => {
     </Card>
   );
 };
+
 export default Post;

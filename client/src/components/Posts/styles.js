@@ -1,11 +1,12 @@
 import { makeStyles } from "@material-ui/core/styles";
 
 export default makeStyles((theme) => ({
+
   mainContainer: {
     display: "flex",
     alignItems: "center",
     overflowY: "scroll",
-    height: "70vh",
+    height: "80vh",
 
   },
   smMargin: {

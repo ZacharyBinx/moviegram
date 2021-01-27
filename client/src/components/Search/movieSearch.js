@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import { TextField, Button, Typography, Paper, List } from "@material-ui/core";
 import ListItem from "@material-ui/core/ListItem";
 import ListItemText from "@material-ui/core/ListItemText";
@@ -25,8 +25,8 @@ const MovieSearch = ({ currentId, setCurrentId }) => {
     imageUrl: "",
   });
 
-  const Base_URL = "https://www.omdbapi.com/?apikey=461e66e0&s=";
-  const Title_URL = "https://www.omdbapi.com/?apikey=461e66e0&i=";
+  const Base_URL = process.env.REACT_APP_BASE_URL;
+  const Title_URL = process.env.REACT_APP_TITLE_URL;
 
   const handleApiSubmit = (e) => {
     e.preventDefault();
