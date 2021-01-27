@@ -36,7 +36,7 @@ const MovieSearch = ({ currentId, setCurrentId }) => {
       .then((data) => data.json())
       .then((data) => {
         console.log(data);
-        if (data.Search.length > 0) {
+        if (data.Search?.length > 0) {
           apiDispatch({
             type: API_CALL,
             payload: data,
