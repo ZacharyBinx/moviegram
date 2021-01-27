@@ -25,8 +25,8 @@ const MovieSearch = ({ currentId, setCurrentId }) => {
     imageUrl: "",
   });
 
-  const Base_URL = process.env.REACT_APP_BASE_URL;
-  const Title_URL = process.env.REACT_APP_TITLE_URL;
+  const Base_URL = `https://www.omdbapi.com/?apikey=${process.env.REACT_APP_OMDB_API_KEY}&s=`;
+  const Title_URL = `https://www.omdbapi.com/?apikey=${process.env.REACT_APP_OMDB_API_KEY}&i=`;
 
   const handleApiSubmit = (e) => {
     e.preventDefault();
