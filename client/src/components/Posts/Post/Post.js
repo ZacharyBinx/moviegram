@@ -7,7 +7,6 @@ import {
   Button,
   Typography,
 } from "@material-ui/core";
-
 import DeleteIcon from "@material-ui/icons/Delete";
 import MoreHorizIcon from "@material-ui/icons/MoreHoriz";
 import moment from "moment";
@@ -18,8 +17,9 @@ import {
   likePost,
   dislikePost,
   watchPost,
+  bookMarkPost,
 } from "../../../actions/posts";
-import { Likes, DisLikes, Watches } from "./Reactions.js";
+import { Likes, DisLikes, Watches, BookMarks } from "./Reactions.js";
 const Post = ({ post, setCurrentId }) => {
   const classes = useStyles();
   const dispatch = useDispatch();
@@ -41,14 +41,14 @@ const Post = ({ post, setCurrentId }) => {
       <div className={classes.overlay2}>
         {(user?.result?.googleId === post?.creator ||
           user?.result?._id === post?.creator) && (
-          <Button
-            style={{ color: "white" }}
-            size="small"
-            onClick={() => setCurrentId(post._id)}
-          >
-            <MoreHorizIcon fontSize="default" />
-          </Button>
-        )}
+            <Button
+              style={{ color: "white" }}
+              size="small"
+              onClick={() => setCurrentId(post._id)}
+            >
+              <MoreHorizIcon fontSize="default" />
+            </Button>
+          )}
       </div>
       <div className={classes.details}>
         <Typography variant="body2" color="textSecondary">
@@ -65,6 +65,7 @@ const Post = ({ post, setCurrentId }) => {
       </CardContent>
       <CardActions className={classes.cardActions}>
         <Button
+          className={classes.buttonRoot}
           size="small"
           color="primary"
           disabled={!user?.result}
@@ -73,6 +74,7 @@ const Post = ({ post, setCurrentId }) => {
           <Likes post={post} user={user} />
         </Button>
         <Button
+          className={classes.buttonRoot}
           size="small"
           color="primary"
           disabled={!user?.result}
@@ -80,7 +82,9 @@ const Post = ({ post, setCurrentId }) => {
         >
           <DisLikes post={post} user={user} />
         </Button>
+
         <Button
+          className={classes.buttonRoot}
           size="small"
           color="primary"
           disabled={!user?.result}
@@ -88,16 +92,28 @@ const Post = ({ post, setCurrentId }) => {
         >
           <Watches post={post} user={user} />
         </Button>
+
+        <Button
+          className={classes.buttonRoot}
+          size="small"
+          color="primary"
+          disabled={!user?.result}
+          onClick={() => dispatch(bookMarkPost(post._id))}
+        >
+          <BookMarks post={post} user={user} />
+        </Button>
+
         {(user?.result?.googleId === post?.creator ||
           user?.result?._id === post?.creator) && (
-          <Button
-            size="small"
-            color="primary"
-            onClick={() => dispatch(deletePost(post._id))}
-          >
-            <DeleteIcon fontSize="small" />
-          </Button>
-        )}
+            <Button
+              className={classes.buttonRoot}
+              size="small"
+              color="primary"
+              onClick={() => dispatch(deletePost(post._id))}
+            >
+              <DeleteIcon fontSize="small" />
+            </Button>
+          )}
       </CardActions>
     </Card>
   );

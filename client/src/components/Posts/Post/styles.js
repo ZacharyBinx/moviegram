@@ -1,6 +1,6 @@
 import { makeStyles } from "@material-ui/core/styles";
 
-export default makeStyles({
+export default makeStyles(theme => ({
   media: {
     height: 0,
     paddingTop: "56.25%",
@@ -20,6 +20,7 @@ export default makeStyles({
     borderRadius: "15px",
     height: "100%",
     position: "relative",
+
   },
   overlay: {
     position: "absolute",
@@ -35,6 +36,8 @@ export default makeStyles({
   },
   grid: {
     display: "flex",
+    boxSizing: "border-box",
+    width: "100%",
   },
   details: {
     display: "flex",
@@ -49,4 +52,7 @@ export default makeStyles({
     display: "flex",
     justifyContent: "space-between",
   },
-});
+  buttonRoot:{
+    minWidth: "auto",
+  }
+}));

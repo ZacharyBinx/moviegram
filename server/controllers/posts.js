@@ -55,6 +55,7 @@ export const deletePost = async (req, res) => {
 export const likePost = async (req, res) => {
   const { id } = req.params;
 
+  console.log(req.params);
   if(!req.userId) return res.json({ message: "Not Authenticated"})
 
   if (!mongoose.Types.ObjectId.isValid(id))
@@ -122,6 +123,32 @@ export const watchPost = async (req, res) => {
     post.watch.push(req.userId);
   } else {
     post.watch = post.watch.filter((id) => id !== String(req.userId));
+  }
+
+  const updatedPost = await PostMessage.findByIdAndUpdate(
+    id,
+    post,
+    { new: true }
+  );
+
+  res.json(updatedPost);
+};
+export const bookMarkPost = async (req, res) => {
+  const { id } = req.params;
+
+  if(!req.userId) return res.json({ message: "Not Authenticated"})
+
+  if (!mongoose.Types.ObjectId.isValid(id))
+    return res.status(404).send("No post with that id");
+
+  const post = await PostMessage.findById(id);
+
+  const index = post.bookMark.findIndex((id) => id === String(req.userId));
+
+  if(index === -1) {
+    post.bookMark.push(req.userId);
+  } else {
+    post.bookMark = post.bookMark.filter((id) => id !== String(req.userId));
   }
 
   const updatedPost = await PostMessage.findByIdAndUpdate(
