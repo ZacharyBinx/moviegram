@@ -16,9 +16,9 @@ Moviegram allows all who login to add films they have seen or want to see to the
 This allows communities to share movies in a more local way that is fine tuned to the communities tastes. Don't be dissuaded from a movie due to popular opinion. Use the opinions of friends and family with this site!
 
 ## First Peek
-![Logged Out](./assets/app1.png)
+![Logged Out](/assets/app1.png)
 
-![Logged In and Search](./assets/app2.png)
+![Logged In and Search](/assets/app2.png)
 
 ## License
 
